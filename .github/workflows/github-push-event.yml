@@ -1,0 +1,16 @@
+name: push_event
+run-name: Perform action when a push is made to master
+on:
+    push:
+        branches:
+            - master
+jobs:
+    run_master_branch:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                node-version: '14'
+            - run: npm install -g bats
+            - run: bats -v  
