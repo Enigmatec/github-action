@@ -1,6 +1,9 @@
 name: learn-github-action
 run-name: ${{github.actor}} is learning github action
-on: push
+on: 
+  push:
+    branches:
+      - master
 jobs:
   check-bat-version:
     runs-on: ubuntu-latest
