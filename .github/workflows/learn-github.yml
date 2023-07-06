@@ -1,20 +1,16 @@
-name: learn-github-action
-run-name: ${{github.actor}} is learning github action
-on: 
-    push:
-        branches:
-            - develop
+name: php-version
+run-name: checking php version
+on: push
 jobs:
-    checks-bat-version:
+    check-php-version:
         runs-on: ubuntu-latest
         steps:
             - name: checkout to runner
               uses: actions/checkout@v3
-            - name: install node
-              uses: actions/setup-node@v3
+            - name: install php
+              uses: php-actions/phpcs@v1
               with:
-                node-version: '14'
-            - name: install bats
-              run: npm install -g bats
-            - name: checks bat version
-              run: bats -v
+                php_version: 8.1
+            - name: check php version
+              run: php -v
+            
