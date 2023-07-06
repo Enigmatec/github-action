@@ -1,16 +1,13 @@
-name: push_event
-run-name: Perform action when a push is made to master
-on:
-    push:
-        branches:
-            - master
+name: learn-github-action
+run-name: ${{github.actor}} is learning github action
+on: [push]
 jobs:
-    run_master_branch:
+    check-bats-version:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
             - uses: actions/setup-node@v3
-              with:
+              with: 
                 node-version: '14'
             - run: npm install -g bats
-            - run: bats -v  
+            - run: bats -v
