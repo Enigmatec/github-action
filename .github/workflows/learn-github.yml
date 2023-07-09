@@ -1,6 +1,9 @@
 name: "Deploy Proddly App"
 run-name: "Deploying proddly Admin"
-on: push
+on:
+  push:
+    branches:
+      - develop
 jobs:
   deploy-proddly-app:
     runs-on: ubuntu-latest
