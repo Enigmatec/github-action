@@ -1,17 +1,18 @@
-name: php-version
-run-name: checking php version
+name: "Deploy Proddly App"
+run-name: "Deploying proddly Admin"
 on: push
 jobs:
-    check-php-version:
-        runs-on: ubuntu-latest
-        steps:
-            - name: checkout to runner
-              uses: actions/checkout@v3
-            - name: install php
-              uses: php-actions/phpcs@v1
-              with:
-                php_version: 8.1
-                path: src/
-            - name: check php version
-              run: php -v
-            
+  deploy-proddly-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "checkout repo"
+        uses: "actions/checkout@v3"
+      - name: "upload artifacts"
+        uses: "actions/upload-artifact@v3"
+        with:
+          name: "my artifacts"
+          path: "./src"
+
+      
+
+
